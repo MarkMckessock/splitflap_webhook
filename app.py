@@ -68,6 +68,7 @@ _ALLOWED_CHARS = re.compile(r"[^A-Z0-9grypwb .?$'#,!@&\-]")
 
 
 def sanitize_body(text):
+    text = text.upper()
     for emoji, letter in COLOR_EMOJI_MAP.items():
         text = text.replace(emoji, letter)
     text = re.sub(_ALLOWED_CHARS, "", text)
